@@ -1,0 +1,1 @@
+Intelligence feed activities are sourced from real business data tables (publications, trials, conferences, news, grants, guidelines), summarized by AI via edge function `summarize-activities`. Hook: `useHCPBusinessActivities` in src/hooks/useHCPBusinessActivities.ts. Falls back to raw titles if AI fails. Results cached 5 min via react-query.

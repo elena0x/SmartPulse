@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 20% 97%;
+    --foreground: 220 25% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 25% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 25% 10%;
+
+    --primary: 217 91% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 14% 92%;
+    --secondary-foreground: 220 25% 10%;
+
+    --muted: 220 14% 95%;
+    --muted-foreground: 220 10% 46%;
+
+    --accent: 170 70% 42%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 90%;
+    --input: 220 13% 90%;
+    --ring: 217 91% 50%;
+
+    --radius: 0.75rem;
+
+    --signal-high: 0 72% 51%;
+    --signal-medium: 38 92% 50%;
+    --signal-low: 142 71% 45%;
+    --signal-info: 217 91% 50%;
+
+    --sidebar-background: 222 28% 7%;
+    --sidebar-foreground: 220 14% 80%;
+    --sidebar-primary: 217 91% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 222 25% 14%;
+    --sidebar-accent-foreground: 220 14% 90%;
+    --sidebar-border: 222 20% 16%;
+    --sidebar-ring: 217 91% 50%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(217 91% 50%), hsl(230 80% 60%));
+    --gradient-accent: linear-gradient(135deg, hsl(170 70% 42%), hsl(190 70% 50%));
+    --gradient-signal: linear-gradient(135deg, hsl(38 92% 50%), hsl(25 95% 53%));
+    --shadow-card: 0 1px 3px hsl(220 25% 10% / 0.06), 0 4px 12px hsl(220 25% 10% / 0.04);
+    --shadow-elevated: 0 4px 16px hsl(220 25% 10% / 0.08), 0 12px 40px hsl(220 25% 10% / 0.06);
+  }
+
+  .dark {
+    --background: 222 28% 6%;
+    --foreground: 220 14% 90%;
+
+    --card: 222 25% 10%;
+    --card-foreground: 220 14% 90%;
+
+    --popover: 222 25% 10%;
+    --popover-foreground: 220 14% 90%;
+
+    --primary: 217 91% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 222 20% 16%;
+    --secondary-foreground: 220 14% 90%;
+
+    --muted: 222 20% 14%;
+    --muted-foreground: 220 10% 55%;
+
+    --accent: 170 70% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 222 18% 18%;
+    --input: 222 18% 18%;
+    --ring: 217 91% 55%;
+
+    --shadow-card: 0 1px 3px hsl(0 0% 0% / 0.2), 0 4px 12px hsl(0 0% 0% / 0.15);
+    --shadow-elevated: 0 4px 16px hsl(0 0% 0% / 0.3), 0 12px 40px hsl(0 0% 0% / 0.2);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer components {
+  .card-elevated {
+    @apply bg-card rounded-xl border;
+    box-shadow: var(--shadow-card);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+  }
+
+  .card-elevated:hover {
+    box-shadow: var(--shadow-elevated);
+  }
+
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-accent {
+    background: var(--gradient-accent);
+  }
+
+  .gradient-signal {
+    background: var(--gradient-signal);
+  }
+
+  .signal-badge-high {
+    display: inline-block;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    font-weight: 600;
+    padding: 0.125rem 0.625rem;
+    border-radius: 9999px;
+    background-color: hsla(0, 72%, 51%, 0.12);
+    color: hsl(0, 72%, 51%);
+    border: 1px solid hsla(0, 72%, 51%, 0.25);
+  }
+
+  .signal-badge-medium {
+    display: inline-block;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    font-weight: 600;
+    padding: 0.125rem 0.625rem;
+    border-radius: 9999px;
+    background-color: hsla(38, 92%, 50%, 0.12);
+    color: hsl(38, 92%, 50%);
+    border: 1px solid hsla(38, 92%, 50%, 0.25);
+  }
+
+  .signal-badge-low {
+    display: inline-block;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    font-weight: 600;
+    padding: 0.125rem 0.625rem;
+    border-radius: 9999px;
+    background-color: hsla(142, 71%, 45%, 0.12);
+    color: hsl(142, 71%, 45%);
+    border: 1px solid hsla(142, 71%, 45%, 0.25);
+  }
+
+  .score-badge {
+    @apply text-xs font-bold px-2.5 py-0.5 rounded-full font-mono;
+    background-color: hsl(217, 91%, 50%, 0.12);
+    color: hsl(217, 91%, 50%);
+    border: 1px solid hsl(217, 91%, 50%, 0.2);
+  }
+
+  .score-badge-high {
+    background-color: hsla(0, 72%, 51%, 0.1);
+    color: hsl(0, 72%, 51%);
+    border-color: hsla(0, 72%, 51%, 0.2);
+  }
+
+  .score-badge-medium {
+    background-color: hsla(38, 92%, 50%, 0.1);
+    color: hsl(38, 92%, 50%);
+    border-color: hsla(38, 92%, 50%, 0.2);
+  }
+
+  .stat-value {
+    @apply text-3xl font-bold tracking-tight;
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
